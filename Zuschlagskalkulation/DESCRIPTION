@@ -1,0 +1,9 @@
+Package: Zuschlagskalkulation
+Type: Package
+Title: Zuschlagskakulation
+Version: 1.2
+Date: 2013-02-14
+Author: Christopher M. Stadin
+Maintainer: Bei Fragen E-Mail an <chrufru@gmail.com>
+Description: Zuschlagskalkulation mit einer oder mehreren Kostenstellen
+License: GNU General Public License
