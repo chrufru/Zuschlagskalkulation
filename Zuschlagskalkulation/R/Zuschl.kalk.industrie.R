@@ -10,14 +10,14 @@ function(SK,MEK,MGKZ,FLK,FGKZ,SEKF,EKEK,EKGKZ,VwEK,VwGKZ,VtEK,VtGKZ,plot=TRUE){
 	cat(MGK,"Euro fuer",MGKZ,"Prozent","Gemeinkostenzuschlag","\n")
         cat("_____","\n")
 	cat(MK,"Euro feur Materialkosten","\n")
-  }
-  else if (is.na(MEK)==T){
-    FGK <- FLK * FGKZ/100 # Fertigungs-Gemeinkosten
-    EKGK <- EKEK * EKGKZ/100 # Entwicklungs- u. Konstuktions-Gemeinkosten
-    VwGK <- VwEK * VwGKZ/100 # Verwaltungs-Gemeinkosten
-    VtGK <- VtEK * VtGKZ/100 # Vertriebs-Gemeinkosten
-    MGK <- SK-(FLK+FGK+SEKF+EKEK+EKGK+VwEK+VwGK+VtEK+VtGK)
-    MEK <- MGK-((MGKZ/MGK) *10 *MGK)
+        }
+        else if (is.na(MEK)==T){
+    	FGK <- FLK * FGKZ/100 # Fertigungs-Gemeinkosten
+    	EKGK <- EKEK * EKGKZ/100 # Entwicklungs- u. Konstuktions-Gemeinkosten
+    	VwGK <- VwEK * VwGKZ/100 # Verwaltungs-Gemeinkosten
+    	VtGK <- VtEK * VtGKZ/100 # Vertriebs-Gemeinkosten
+    	MGK <- SK-(FLK+FGK+SEKF+EKEK+EKGK+VwEK+VwGK+VtEK+VtGK)
+    	MEK <- MGK-((MGKZ/MGK) *10 *MGK)
 	  cat("MEK = NA","-", "Materialeinzelkosten werden berrechnet...!","\n")
 	  cat("Die Selbstkosten eines vergleichbaren Auftrages betrugen:",SK,"Euro","\n")
           cat("********************************************************************","\n")
@@ -28,11 +28,11 @@ function(SK,MEK,MGKZ,FLK,FGKZ,SEKF,EKEK,EKGKZ,VwEK,VwGKZ,VtEK,VtGKZ,plot=TRUE){
   #
 	# 2. Kostenstelle -Fertigung
 	if(is.na(FLK)==F){
-	  MGK <- MEK * MGKZ/100 # Material-Gemeinkosten
-	  MK <- MEK + MGK # Materialkosten 
-	  FGK <- FLK * FGKZ/100 # Fertigungs-Gemeinkosten
-	  FK <- FLK+FGK  
-          HK <- MK+FK+SEKF # Hier weil, keine Kostenstelle für Sondereinzelkosten der Fertigung 
+	MGK <- MEK * MGKZ/100 # Material-Gemeinkosten
+	MK <- MEK + MGK # Materialkosten 
+	FGK <- FLK * FGKZ/100 # Fertigungs-Gemeinkosten
+	FK <- FLK+FGK  
+        HK <- MK+FK+SEKF # Hier weil, keine Kostenstelle für Sondereinzelkosten der Fertigung 
 	  cat("\n")
           cat("***********************'2. Kostenstelle *****************************","\n")
 	  cat( FLK,"Euro fuer","Fertigungslohnkosten","\n")
@@ -43,11 +43,11 @@ function(SK,MEK,MGKZ,FLK,FGKZ,SEKF,EKEK,EKGKZ,VwEK,VwGKZ,VtEK,VtGKZ,plot=TRUE){
 	  cat("_____","\n")
 	  cat(HK,"Euro feur Herstellungskosten","\n")
 	  }
-	  else if (is.na(FLK)==T){
-	    MGK <- MEK * MGKZ/100 # Material-Gemeinkosten
-            EKGK <- EKEK * EKGKZ/100 # Entwicklungs- u. Konstuktions-Gemeinkosten
-	    VwGK <- VwEK * VwGKZ/100 # Verwaltungs-Gemeinkosten
-	    VtGK <- VtEK * VtGKZ/100 # Vertriebs-Gemeinkosten
+	else if (is.na(FLK)==T){
+	MGK <- MEK * MGKZ/100 # Material-Gemeinkosten
+        EKGK <- EKEK * EKGKZ/100 # Entwicklungs- u. Konstuktions-Gemeinkosten
+	VwGK <- VwEK * VwGKZ/100 # Verwaltungs-Gemeinkosten
+	VtGK <- VtEK * VtGKZ/100 # Vertriebs-Gemeinkosten
 	    FGK <- SK-(MK+SEKF+VwGKZ+EKEK+VwGK+VtGK)
             FLK <- FGK-(FGKZ/FGK *10 *FGK)
 	    cat("FLK = NA","-", "Fertigungs-Lohnkosten werden berrechnet...!","\n")
