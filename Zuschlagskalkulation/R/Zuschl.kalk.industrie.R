@@ -83,7 +83,7 @@ function(SK,MEK,MGKZ,FLK,FGKZ,SEKF,EKEK,EKGKZ,VwEK,VwGKZ,VtEK,VtGKZ,plot=TRUE){
 	    cat("angenommen wurden:", EKGKZ,"Prozent Gemeinkosten des vorhergenden Auftrags","\n")
 	    cat("********************************************************************","\n")
 	}
-  #
+        #
 	# 4. Kostenstelle: Verwaltung
 	if(is.na(VwEK)==F){
 	VwGK <- VwEK * VwGKZ/100 # Verwaltungs-Gemeinkosten
@@ -112,14 +112,14 @@ function(SK,MEK,MGKZ,FLK,FGKZ,SEKF,EKEK,EKGKZ,VwEK,VwGKZ,VtEK,VtGKZ,plot=TRUE){
  	#
 	# 5. Kostenstelle Vertrieb
 	if(is.na(VtEK)==F){
-	  VtGK <- VtEK * VtGKZ/100 # Vertriebs-Gemeinkosten
-          VtK <- VtEK+VtGK
-	  cat("\n")
-	  cat("***********************'5. Kostenstelle *****************************","\n")
-	  cat(VtEK,"Euro fuer","Vertriebs-Einzelkosten","\n")
-	  cat(VtGK,"Euro fuer",VtGKZ,"Prozent","Gemeinkostenzuschlag","\n")
-	  cat("_____","\n")
-	  cat(VtK,"Euro feur Vertiebskosten","\n")
+	VtGK <- VtEK * VtGKZ/100 # Vertriebs-Gemeinkosten
+        VtK <- VtEK+VtGK
+	cat("\n")
+ 	cat("***********************'5. Kostenstelle *****************************","\n")
+	cat(VtEK,"Euro fuer","Vertriebs-Einzelkosten","\n")
+	cat(VtGK,"Euro fuer",VtGKZ,"Prozent","Gemeinkostenzuschlag","\n")
+	cat("_____","\n")
+	cat(VtK,"Euro feur Vertiebskosten","\n")
 	  }
 	  else if (is.na(VtEK)==T){
 	    MGK <- MEK * MGKZ # Material-Gemeinkosten
