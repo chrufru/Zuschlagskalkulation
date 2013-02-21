@@ -150,7 +150,7 @@ function(SK,MEK,MGKZ,FLK,FGKZ,SEKF,EKEK,EKGKZ,VwEK,VwGKZ,VtEK,VtGKZ,plot=TRUE){
 	if((plot)==T){
 	png(filename="Zuschlagskalk.png", width=1024, height=1024, pointsize=36)
 	Kosten <- c(MK,FK,HK,EKK,VwK,VtK)
-	labels <-list("Materialkosten","Fertigungskosten","Herstellkosten","Entwicklunkskosten","Verwaltungskosten","Vertriebskosten")
+	labels <-list("Materialkosten","Fertigungskosten","Herstellkosten","Entwicklungkskosten","Verwaltungskosten","Vertriebskosten")
 	par(mar=c(10,4,4,4))
         barplot(height=Kosten, names.arg=labels, horiz=F, las=2,col="skyblue", main="Zuschlagskakulation",cex.names=1.0)
         dev.off()
