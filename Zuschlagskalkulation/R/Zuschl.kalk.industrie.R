@@ -8,33 +8,48 @@ function(SK,MEK,MGKZ,FLK,FGKZ,SEKF,EKEK,EKGKZ,VwEK,VwGKZ,VtEK,VtGKZ,plot=TRUE){
 	cat("***********************'1. Kostenstelle *****************************","\n")
 	cat(MEK,"Euro fuer","Materialeinzellkosten","\n")
 	cat(MGK,"Euro fuer",MGKZ,"Prozent","Gemeinkostenzuschlag","\n")
-  cat("_____","\n")
+        cat("_____","\n")
 	cat(MK,"Euro feur Materialkosten","\n")
-  }
-  else if (is.na(MEK)==T){
-    FGK <- FLK * FGKZ/100 # Fertigungs-Gemeinkosten
-    EKGK <- EKEK * EKGKZ/100 # Entwicklungs- u. Konstuktions-Gemeinkosten
-    VwGK <- VwEK * VwGKZ/100 # Verwaltungs-Gemeinkosten
-    VtGK <- VtEK * VtGKZ/100 # Vertriebs-Gemeinkosten
-	  MGK <- SK-(FLK+FGK+SEKF+EKEK+EKGK+VwEK+VwGK+VtEK+VtGK)
-    MEK <- MGK-((MGKZ/MGK) *10 *MGK)
+        }
+        else if (is.na(MEK)==T){
+    	FGK <- FLK * FGKZ/100 # Fertigungs-Gemeinkosten
+    	EKGK <- EKEK * EKGKZ/100 # Entwicklungs- u. Konstuktions-Gemeinkosten
+    	VwGK <- VwEK * VwGKZ/100 # Verwaltungs-Gemeinkosten
+    	VtGK <- VtEK * VtGKZ/100 # Vertriebs-Gemeinkosten
+    	MGK <- SK-(FLK+FGK+SEKF+EKEK+EKGK+VwEK+VwGK+VtEK+VtGK)
+    	MEK <- MGK-((MGKZ/MGK) *10 *MGK)
 	  cat("MEK = NA","-", "Materialeinzelkosten werden berrechnet...!","\n")
 	  cat("Die Selbstkosten eines vergleichbaren Auftrages betrugen:",SK,"Euro","\n")
+<<<<<<< HEAD
     cat("********************************************************************","\n")
  	  cat(MEK,"Euro fuer","Material-Einzelkosten simuliert!","\n")
     cat("angenommen wurden:", MGKZ,"Prozent Gemeinkosten des vorhergenden Auftrags","\n")
+=======
+          cat("********************************************************************","\n")
+ 	  cat(MEK,"Euro fuer","Material-Einzelkosten simuliert!","\n")
+          cat("angenommen wurden:", MGKZ,"Prozent Gemeinkosten des vorhergenden Auftrags","\n")
+>>>>>>> 5c9bfc4d581ce85e6f1ee458eb8418194e7baee2
 	  cat("********************************************************************","\n")
 	}
-  #
+  	#
 	# 2. Kostenstelle -Fertigung
 	if(is.na(FLK)==F){
 	MGK <- MEK * MGKZ/100 # Material-Gemeinkosten
+<<<<<<< HEAD
   MK <- MEK + MGK # Materialkosten 
 	FGK <- FLK * FGKZ/100 # Fertigungs-Gemeinkosten
 	FK <- FLK+FGK  
   HK <- MK+FK+SEKF # Hier weil, keine Kostenstelle für Sondereinzelkosten der Fertigung 
 	cat("\n")
   cat("***********************'2. Kostenstelle *****************************","\n")
+=======
+	MK <- MEK + MGK # Materialkosten 
+	FGK <- FLK * FGKZ/100 # Fertigungs-Gemeinkosten
+	FK <- FLK+FGK  
+        HK <- MK+FK+SEKF # Hier weil, keine Kostenstelle für Sondereinzelkosten der Fertigung 
+	cat("\n")
+        cat("***********************'2. Kostenstelle *****************************","\n")
+>>>>>>> 5c9bfc4d581ce85e6f1ee458eb8418194e7baee2
 	cat( FLK,"Euro fuer","Fertigungslohnkosten","\n")
 	cat(FGK,"Euro fuer",FGKZ,"Prozent","Gemeinkostenzuschlag","\n")
 	cat("_____","\n")
@@ -44,12 +59,21 @@ function(SK,MEK,MGKZ,FLK,FGKZ,SEKF,EKEK,EKGKZ,VwEK,VwGKZ,VtEK,VtGKZ,plot=TRUE){
 	cat(HK,"Euro feur Herstellungskosten","\n")
 	}
 	else if (is.na(FLK)==T){
+<<<<<<< HEAD
 	    MGK <- MEK * MGKZ/100 # Material-Gemeinkosten
       EKGK <- EKEK * EKGKZ/100 # Entwicklungs- u. Konstuktions-Gemeinkosten
 	    VwGK <- VwEK * VwGKZ/100 # Verwaltungs-Gemeinkosten
 	    VtGK <- VtEK * VtGKZ/100 # Vertriebs-Gemeinkosten
 	    FGK <- SK-(MK+SEKF+VwGKZ+EKEK+VwGK+VtGK)
       FLK <- FGK-(FGKZ/FGK *10 *FGK)
+=======
+	MGK <- MEK * MGKZ/100 # Material-Gemeinkosten
+        EKGK <- EKEK * EKGKZ/100 # Entwicklungs- u. Konstuktions-Gemeinkosten
+	VwGK <- VwEK * VwGKZ/100 # Verwaltungs-Gemeinkosten
+	VtGK <- VtEK * VtGKZ/100 # Vertriebs-Gemeinkosten
+	    FGK <- SK-(MK+SEKF+VwGKZ+EKEK+VwGK+VtGK)
+            FLK <- FGK-(FGKZ/FGK *10 *FGK)
+>>>>>>> 5c9bfc4d581ce85e6f1ee458eb8418194e7baee2
 	    cat("FLK = NA","-", "Fertigungs-Lohnkosten werden berrechnet...!","\n")
 	    cat("Die Selbstkosten eines vergleichbaren Auftrages betrugen:",SK,"Euro","\n")
 	    cat("********************************************************************","\n")
@@ -57,9 +81,10 @@ function(SK,MEK,MGKZ,FLK,FGKZ,SEKF,EKEK,EKGKZ,VwEK,VwGKZ,VtEK,VtGKZ,plot=TRUE){
 	    cat("angenommen wurden:",FGKZ,"Prozent Gemeinkosten des vorhergenden Auftrags","\n")
 	    cat("********************************************************************","\n")
 	  }
-  #
+  	#
 	# 3. Kostenstelle: Entwicklung- u. Konstruktion
 	if(is.na(EKEK)==F){
+<<<<<<< HEAD
 	EKGK <- EKEK * EKGKZ/100 # Entwicklungs- u. Konstuktions-Gemeinkosten
   EKK <- EKEK+EKGK
 	cat("\n")
@@ -70,9 +95,21 @@ function(SK,MEK,MGKZ,FLK,FGKZ,SEKF,EKEK,EKGKZ,VwEK,VwGKZ,VtEK,VtGKZ,plot=TRUE){
 	cat(EKK,"Euro feur Entwicklung- u. Konstruktionskosten","\n")
   }
 	else if (is.na(EKEK)==T){
+=======
+ 	EKGK <- EKEK * EKGKZ/100 # Entwicklungs- u. Konstuktions-Gemeinkosten
+        EKK <- EKEK+EKGK
+	cat("\n")
+	cat("***********************'3. Kostenstelle *****************************","\n")
+	cat(EKEK,"Euro fuer","Entwicklung- u. Konstruktions-Einzelkosten","\n")
+        cat(EKGK,"Euro fuer",EKGKZ,"Prozent","Gemeinkostenzuschlag","\n")
+	cat("_____","\n")
+	cat(EKK,"Euro feur Entwicklung- u. Konstruktionskosten","\n")
+        }
+	  else if (is.na(EKEK)==T){
+>>>>>>> 5c9bfc4d581ce85e6f1ee458eb8418194e7baee2
 	    MGK <- MEK * MGKZ/100 # Material-Gemeinkosten
-      FGK <- FLK * FGKZ/100 # Fertigungs-Gemeinkosten
-      VwGK <- VwEK * VwGKZ/100 # Verwaltungs-Gemeinkosten
+            FGK <- FLK * FGKZ/100 # Fertigungs-Gemeinkosten
+            VwGK <- VwEK * VwGKZ/100 # Verwaltungs-Gemeinkosten
 	    VtGK <- VtEK * VtGKZ/100 # Vertriebs-Gemeinkosten
 	    EKGK <- SK-(HK+VwGK+VtGK)
 	    EKEK <- EKGK-(EKGKZ/EKGK *10 *EKGK)
@@ -83,10 +120,11 @@ function(SK,MEK,MGKZ,FLK,FGKZ,SEKF,EKEK,EKGKZ,VwEK,VwGKZ,VtEK,VtGKZ,plot=TRUE){
 	    cat("angenommen wurden:", EKGKZ,"Prozent Gemeinkosten des vorhergenden Auftrags","\n")
 	    cat("********************************************************************","\n")
 	}
-  #
+        #
 	# 4. Kostenstelle: Verwaltung
 	if(is.na(VwEK)==F){
 	VwGK <- VwEK * VwGKZ/100 # Verwaltungs-Gemeinkosten
+<<<<<<< HEAD
   VwK <- VwEK+VwGK
 	cat("\n")
 	cat("***********************'4. Kostenstelle *****************************","\n")
@@ -96,10 +134,21 @@ function(SK,MEK,MGKZ,FLK,FGKZ,SEKF,EKEK,EKGKZ,VwEK,VwGKZ,VtEK,VtGKZ,plot=TRUE){
 	cat(VwK,"Euro feur Verwaltungskosten","\n")
 	}
 	else if (is.na(VwEK)==T){
+=======
+        VwK <- VwEK+VwGK
+	cat("\n")
+	cat("***********************'4. Kostenstelle *****************************","\n")
+	cat(VwEK,"Euro fuer","Verwaltungs-Einzelkosten","\n")
+       	cat(VwGK,"Euro fuer",VwGKZ,"Prozent","Gemeinkostenzuschlag","\n")
+	cat("_____","\n")
+	cat(VwK,"Euro feur Verwaltungskosten","\n")
+	}
+	  else if (is.na(VwEK)==T){
+>>>>>>> 5c9bfc4d581ce85e6f1ee458eb8418194e7baee2
 	    MGK <- MEK * MGKZ # Material-Gemeinkosten
 	    FGK <- FLK * FGKZ # Fertigungs-Gemeinkosten
 	    EKGK <- EKEK * EKGKZ # Entwicklungs- u. Konstuktions-Gemeinkosten
-      VtGK <- VtEK * VtGKZ # Vertriebs-Gemeinkosten
+            VtGK <- VtEK * VtGKZ # Vertriebs-Gemeinkosten
 	    VwGK<- SK-(HK+EKGK+VtGK)
 	    VwEK <- VwGK-(VwGKZ/VwGK *10 *VwGK)
 	    cat("MEK = NA","-", "Verwaltungs-Einzelkosten werden berrechnet...!","\n")
@@ -109,19 +158,30 @@ function(SK,MEK,MGKZ,FLK,FGKZ,SEKF,EKEK,EKGKZ,VwEK,VwGKZ,VtEK,VtGKZ,plot=TRUE){
 	    cat("angenommen wurden:",VwGKZ,"Prozent Gemeinkosten des vorhergenden Auftrags","\n")
 	    cat("********************************************************************","\n")
 	}
-  #
+ 	#
 	# 5. Kostenstelle Vertrieb
 	if(is.na(VtEK)==F){
 	VtGK <- VtEK * VtGKZ/100 # Vertriebs-Gemeinkosten
+<<<<<<< HEAD
   VtK <- VtEK+VtGK
 	cat("\n")
 	cat("***********************'5. Kostenstelle *****************************","\n")
+=======
+        VtK <- VtEK+VtGK
+	cat("\n")
+ 	cat("***********************'5. Kostenstelle *****************************","\n")
+>>>>>>> 5c9bfc4d581ce85e6f1ee458eb8418194e7baee2
 	cat(VtEK,"Euro fuer","Vertriebs-Einzelkosten","\n")
 	cat(VtGK,"Euro fuer",VtGKZ,"Prozent","Gemeinkostenzuschlag","\n")
 	cat("_____","\n")
 	cat(VtK,"Euro feur Vertiebskosten","\n")
+<<<<<<< HEAD
 	}
   else if (is.na(VtEK)==T){
+=======
+	  }
+	  else if (is.na(VtEK)==T){
+>>>>>>> 5c9bfc4d581ce85e6f1ee458eb8418194e7baee2
 	    MGK <- MEK * MGKZ # Material-Gemeinkosten
 	    FGK <- FLK * FGKZ # Fertigungs-Gemeinkosten
 	    EKGK <- EKEK * EKGKZ # Entwicklungs- u. Konstuktions-Gemeinkosten
@@ -136,25 +196,29 @@ function(SK,MEK,MGKZ,FLK,FGKZ,SEKF,EKEK,EKGKZ,VwEK,VwGKZ,VtEK,VtGKZ,plot=TRUE){
 	    cat("********************************************************************","\n")
 	}
 	if(is.na(SK)==T){
-  SK = HK + EKEK+EKGK + VwEK+VwGK + VtEK+VtGK # Selbstkosten
-  cat("\n")
-  cat("Die Selbstkosten betragen", SK, "Euro", "\n")  
- # return(SK) 
+        SK = HK + EKEK+EKGK + VwEK+VwGK + VtEK+VtGK # Selbstkosten
+        cat("\n")
+        cat("Die Selbstkosten betragen", SK, "Euro", "\n")  
+        # return(SK) 
 	}
 	else if(is.na(SK)==F){
 	cat("********************************************************************","\n")
 	cat("\n")
-  cat("Eine Kostenstelle wurde auf NA gesetzt")  
+        cat("Eine Kostenstelle wurde auf NA gesetzt")  
 	}
-  # Create Plot
+        # Create Plot
 	if((plot)==T){
 	png(filename="Zuschlagskalk.png", width=1024, height=1024, pointsize=36)
 	Kosten <- c(MK,FK,HK,EKK,VwK,VtK)
+<<<<<<< HEAD
 	labels <-list("Materialkosten","Fertigungskosten","Herstellkosten","Entwicklungskosten","Verwaltungskosten","Vertriebskosten")
+=======
+	labels <-list("Materialkosten","Fertigungskosten","Herstellkosten","Entwicklungkskosten","Verwaltungskosten","Vertriebskosten")
+>>>>>>> 5c9bfc4d581ce85e6f1ee458eb8418194e7baee2
 	par(mar=c(10,4,4,4))
-  barplot(height=Kosten, names.arg=labels, horiz=F, las=2,col="skyblue", main="Zuschlagskakulation",cex.names=1.0)
-  dev.off()
+        barplot(height=Kosten, names.arg=labels, horiz=F, las=2,col="skyblue", main="Zuschlagskakulation",cex.names=1.0)
+        dev.off()
 	}else{
-  cat("Argument: plot=False")  
+        cat("Argument: plot=False")  
 	}
 }

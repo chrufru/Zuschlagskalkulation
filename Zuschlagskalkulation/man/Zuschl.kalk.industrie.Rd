@@ -20,7 +20,12 @@ EKEK,EKGKZ,VwEK,VwGKZ,VtEK,VtGKZ,plot=TRUE)}
 \item{plot}{Logical, FALSE or TRUE}
 }
 \details{
+<<<<<<< HEAD
 \code{Zuschl.kalk.industrie} liest die Argumente SK, MEK,MGKZ,FLK,FGKZ,SEKF,EKEK,EKGKZ,VwEK,VwGKZ,VtEK,VtGKZ der Eingabe oder einer Datei, und ermittelt die Selbstkosten (SK) fuer einen Auftrag. Sind Kostenstellen nicht zu ermitteln, koennen aehnliche Auftraege heran gezogen werden. Dabei werden die schon errechneten Selbstkosten eines Auftrages benutzt um zum Beispiel die Materialkosten zu berechen.
+=======
+\code{Zuschl.kalk.industrie} liest die Argumente SK, MEK, MGKZ, FLK, FGKZ, SEKF, EKEK, EKGKZ, VwEK, VwGKZ, VtEK, VtGKZ der Eingabe oder einer Datei, und ermittelt die Selbstkosten (SK) fuer einen Auftrag. 
+Sind Kostenstellen nicht zu ermitteln, koennen aehnliche Auftraege heran gezogen werden. Dabei werden die schon errechneten Selbstkosten eines Auftrages benutzt um zum Beispiel die Materialkosten zu berechen.
+>>>>>>> 5c9bfc4d581ce85e6f1ee458eb8418194e7baee2
 Dabei ist es noetig das die zu ermittelnde Kostenstelle auf "NA" gesetzt wird. Durch das Argument plot=TRUE wird ein Barplot (Balkendiagramm) im Arbeitsverzeichnis erzeugt.
 }
 \value{
